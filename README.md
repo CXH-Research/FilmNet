@@ -1,6 +1,6 @@
 ### [A Large-scale Film Style Dataset for Learning Multi-frequency Driven Film](https://arxiv.org/abs/2301.08880)
 
-__Xuhang Chen, Zinuo Li, Shuqiang Wang, Chi-Man Pun__
+__Zinuo Li, Xuhang Chen, Shuqiang Wang, Chi-Man Pun__
 
 University of Macau, SIAT CAS
 
