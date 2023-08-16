@@ -1,0 +1,28 @@
+VERBOSE: True
+
+MODEL:
+  SESSION: 'Film'
+  FILM: 'target'
+
+# Optimization arguments.
+OPTIM:
+  BATCH_SIZE: 1
+  NUM_EPOCHS: 300
+  LR_INITIAL: 2e-4
+  LR_MIN: 1e-6
+  SEED: 3407
+  WANDB: False
+
+TRAINING:
+  VAL_AFTER_EVERY: 1
+  RESUME: False
+  PS_W: 512
+  PS_H: 512
+  TRAIN_DIR: '../fivek/test/' # path to training data
+  VAL_DIR: '../fivek/test/'     # path to validation data
+  SAVE_DIR: './checkpoints/'          # path to save models and images
+  ORI: True
+
+TESTING:
+  WEIGHT: './checkpoints/fivek.pth'
+  SAVE_IMAGES: True

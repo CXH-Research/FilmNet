@@ -60,8 +60,6 @@ class Config(object):
 
         self._C.MODEL = CN()
         self._C.MODEL.SESSION = 'LUT'
-        self._C.MODEL.LL = 'Transformer'
-        self._C.MODEL.ENHANCE = 'CSR'
         self._C.MODEL.FILM = 'target'
 
         self._C.OPTIM = CN()

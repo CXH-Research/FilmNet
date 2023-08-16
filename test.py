@@ -35,11 +35,7 @@ def test():
     testloader = DataLoader(dataset=val_dataset, batch_size=1, shuffle=False, num_workers=8, drop_last=False,
                             pin_memory=True)
 
-    if opt.MODEL.SESSION == 'LUT':
-        model = FilmNet()
-    else:
-        params = {'batch_norm': False}
-        model = Enhancer(params=params, device=device, ll_layer=opt.MODEL.LL, enhance=opt.MODEL.ENHANCE)
+    model = FilmNet()
 
     load_checkpoint(model, opt.TESTING.WEIGHT)
 
