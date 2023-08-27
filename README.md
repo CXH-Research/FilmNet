@@ -30,16 +30,24 @@ cd FilmNet
 pip install -r requirements.txt
 ```
 
+#### Train
+For single GPU traning:
+```
+specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
+python train.py
+```
+For multiple GPUs traning:
+```
+specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
+accelerate config
+accelerate launch train.py
+```
+
 #### Inference
 ```
-TODO
+specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
+python test.py
 ```
-
-#### Train
-```
-TODO
-```
-
 
 #### Acknowledgments
 If you find our work helpful for your research, please cite:
