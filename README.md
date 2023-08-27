@@ -16,7 +16,7 @@
   ( 👨‍💻‍ Equal contributions, 📮 Corresponding )
   </div>
 
-<University of Macau, SIAT CAS>
+<b>University of Macau, SIAT CAS</b>
 
 2023 INTERNATIONAL JOINT CONFERENCE ON ARTIFICIAL INTELLIGENCE (IJCAI 2023)
 
