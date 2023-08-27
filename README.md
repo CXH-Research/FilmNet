@@ -47,7 +47,7 @@ TODO
 ```
 
 #### Acknowledgments
-
+If you find our work helpful for your research, please cite:
 ```bib
 @inproceedings{ijcai2023p129,
   title     = {A Large-Scale Film Style Dataset for Learning Multi-frequency Driven Film Enhancement},
