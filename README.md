@@ -32,6 +32,7 @@ pip install -r requirements.txt
 
 #### Training
 You may first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
+
 For single GPU traning:
 ```
 python train.py
