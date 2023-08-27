@@ -23,20 +23,28 @@
 [Website & Dataset](https://cxh-research.github.io/FilmNet/) | [Code](https://github.com/CXH-Research/FilmNet)
 ---
 
-#### Demo
+#### Installation
 ```
-TODO
+git clone https://github.com/CXH-Research/FilmNet.git
+cd FilmNet
+pip install -r requirements.txt
 ```
 
 #### Inference
+```
 TODO
+```
 
 #### Train
+```
 TODO
+```
 
 
 #### Other Baselines
+```
 TODO
+```
 
 #### Acknowledgments
 
