@@ -8,10 +8,10 @@
     <a href='https://cxh.netlify.app/'> Xuhang Chen</a><sup> 👨‍💻‍ </sup>
   </span>,
   <span class="author-block">
-    <a href="https://www.cis.um.edu.mo/~cmpun/" target="_blank">Shuqiang Wang</a><sup> 📮</sup>
+    <a href="https://people.ucas.edu.cn/~wangshuqiang?language=en" target="_blank">Shuqiang Wang</a><sup> 📮</sup>
   </span> and
   <span class="author-block">
-  <a href="http://vinthony.github.io/" target="_blank">Xiaodong Cun</a><sup> 📮</sup>
+  <a href="https://www.cis.um.edu.mo/~cmpun/" target="_blank">Chi-Man Pun</a><sup> 📮</sup>
 </span>
   ( 👨‍💻‍ Equal contributions, 📮 Corresponding )
   </div>
