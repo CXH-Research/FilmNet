@@ -30,7 +30,7 @@ cd FilmNet
 pip install -r requirements.txt
 ```
 
-#### Train
+#### Training
 For single GPU traning:
 ```
 specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
