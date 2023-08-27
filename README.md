@@ -49,12 +49,21 @@ TODO
 #### Acknowledgments
 
 ```bib
-@inproceedings{docshadow_sd7k,
-  title={High-Resolution Document Shadow Removal via A Large-Scale Real-World Dataset and A Frequency-Aware Shadow Erasing Net},
-  author={Li, Zinuo and Chen, Xuhang and Pun, Chi-Man and Cun, Xiaodong},
-  booktitle={Proceedings of the IEEE/CVF Conference on International Conference on Computer Vision},
-  year={2023}
+@inproceedings{ijcai2023p129,
+  title     = {A Large-Scale Film Style Dataset for Learning Multi-frequency Driven Film Enhancement},
+  author    = {Li, Zinuo and Chen, Xuhang and Wang, Shuqiang and Pun, Chi-Man},
+  booktitle = {Proceedings of the Thirty-Second International Joint Conference on
+               Artificial Intelligence, {IJCAI-23}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {Edith Elkind},
+  pages     = {1160--1168},
+  year      = {2023},
+  month     = {8},
+  note      = {Main Track},
+  doi       = {10.24963/ijcai.2023/129},
+  url       = {https://doi.org/10.24963/ijcai.2023/129},
 }
+
 
 ```
 
