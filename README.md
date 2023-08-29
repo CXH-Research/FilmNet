@@ -23,6 +23,9 @@
 [Website & Dataset](https://cxh-research.github.io/FilmNet/) | [Code](https://github.com/CXH-Research/FilmNet)
 ---
 
+![image](https://github.com/CXH-Research/FilmNet/assets/94612909/a5ce8c39-d4a2-4e2a-87c7-e8688cf020c5)
+
+
 #### Installation
 ```
 git clone https://github.com/CXH-Research/FilmNet.git
