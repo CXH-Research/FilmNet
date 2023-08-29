@@ -24,7 +24,6 @@
 ---
 
 ![image](https://github.com/CXH-Research/FilmNet/assets/94612909/a5ce8c39-d4a2-4e2a-87c7-e8688cf020c5)
-![image](https://github.com/CXH-Research/FilmNet/assets/94612909/0ef2aa0e-ca8d-46e3-8b5a-867d656e28ce)
 
 
 ### Installation
