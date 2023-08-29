@@ -27,14 +27,14 @@
 ![image](https://github.com/CXH-Research/FilmNet/assets/94612909/0ef2aa0e-ca8d-46e3-8b5a-867d656e28ce)
 
 
-#### Installation
+### Installation
 ```
 git clone https://github.com/CXH-Research/FilmNet.git
 cd FilmNet
 pip install -r requirements.txt
 ```
 
-#### Training
+### Training
 You may first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
 
 For single GPU traning:
@@ -47,13 +47,13 @@ accelerate config
 accelerate launch train.py
 ```
 
-#### Inference
+### Inference
 You may first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
 ```
 python test.py
 ```
 
-#### Acknowledgments
+### Acknowledgments
 If you find our work helpful for your research, please cite:
 ```bib
 @inproceedings{ijcai2023p129,
