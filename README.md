@@ -45,6 +45,7 @@ For multiple GPUs training:
 accelerate config
 accelerate launch train.py
 ```
+If you have difficulties on the usage of accelerate, please refer to <a href="https://github.com/huggingface/accelerate">Accelerate</a>.
 
 ### Inference
 You would first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
