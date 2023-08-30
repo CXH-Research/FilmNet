@@ -34,7 +34,7 @@ pip install -r requirements.txt
 ```
 
 ### Training
-You may first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
+You would first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
 
 For single GPU training:
 ```
@@ -47,7 +47,7 @@ accelerate launch train.py
 ```
 
 ### Inference
-You may first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
+You would first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
 ```
 python test.py
 ```
