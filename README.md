@@ -49,28 +49,18 @@ accelerate launch train.py
 ### Inference
 You may first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
 ```
-python test.py
+python infer.py
 ```
 
 ### Acknowledgments
 If you find our work helpful for your research, please cite:
 ```bib
-@inproceedings{ijcai2023p129,
-  title     = {A Large-Scale Film Style Dataset for Learning Multi-frequency Driven Film Enhancement},
-  author    = {Li, Zinuo and Chen, Xuhang and Wang, Shuqiang and Pun, Chi-Man},
-  booktitle = {Proceedings of the Thirty-Second International Joint Conference on
-               Artificial Intelligence, {IJCAI-23}},
-  publisher = {International Joint Conferences on Artificial Intelligence Organization},
-  editor    = {Edith Elkind},
-  pages     = {1160--1168},
-  year      = {2023},
-  month     = {8},
-  note      = {Main Track},
-  doi       = {10.24963/ijcai.2023/129},
-  url       = {https://doi.org/10.24963/ijcai.2023/129},
+@article{li2023high,
+  title={High-Resolution Document Shadow Removal via A Large-Scale Real-World Dataset and A Frequency-Aware Shadow Erasing Net},
+  author={Li, Zinuo and Chen, Xuhang and Pun, Chi-Man and Cun, Xiaodong},
+  journal={arXiv preprint arXiv:2308.14221},
+  year={2023}
 }
-
-
 ```
 
 
