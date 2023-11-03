@@ -25,18 +25,18 @@
 
 ![image](https://github.com/CXH-Research/FilmNet/assets/94612909/a5ce8c39-d4a2-4e2a-87c7-e8688cf020c5)
 
-# 🔮 Important news:
-## 11/03/2023: There was a typo regarding data for the Cinema-SSIM of DeepLPF, which we have corrected in the arxiv version of the paper.
+## 🔮 Important news:
+### 11/03/2023: There was a typo regarding data for the Cinema-SSIM of DeepLPF, which we have corrected in the arxiv version of the paper.
 
-# ⚙️ Usage
-## Installation
+## ⚙️ Usage
+### Installation
 ```
 git clone https://github.com/CXH-Research/FilmNet.git
 cd FilmNet
 pip install -r requirements.txt
 ```
 
-## Training
+### Training
 Please first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
 
 For single GPU training:
@@ -50,13 +50,13 @@ accelerate launch train.py
 ```
 If you have difficulties on the usage of accelerate, please refer to <a href="https://github.com/huggingface/accelerate">Accelerate</a>.
 
-## Inference
+### Inference
 Please first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
 ```
 python test.py
 ```
 
-## 🛎 Citation
+### 🛎 Citation
 If you find our work helpful for your research, please cite:
 ```bib
 @inproceedings{ijcai2023p129,
