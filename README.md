@@ -1,4 +1,4 @@
-### [A Large-scale Film Style Dataset for Learning Multi-frequency Driven Film](https://arxiv.org/abs/2301.08880)
+### 📋 [A Large-scale Film Style Dataset for Learning Multi-frequency Driven Film](https://arxiv.org/abs/2301.08880)
 
 <div>
 <span class="author-block">
@@ -25,15 +25,15 @@
 
 ![image](https://github.com/CXH-Research/FilmNet/assets/94612909/a5ce8c39-d4a2-4e2a-87c7-e8688cf020c5)
 
-
-### Installation
+# ⚙️ Usage
+## Installation
 ```
 git clone https://github.com/CXH-Research/FilmNet.git
 cd FilmNet
 pip install -r requirements.txt
 ```
 
-### Training
+## Training
 Please first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
 
 For single GPU training:
@@ -47,13 +47,13 @@ accelerate launch train.py
 ```
 If you have difficulties on the usage of accelerate, please refer to <a href="https://github.com/huggingface/accelerate">Accelerate</a>.
 
-### Inference
+## Inference
 Please first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TESTING in traning.yml
 ```
 python test.py
 ```
 
-### Acknowledgments
+## 🛎 Citation
 If you find our work helpful for your research, please cite:
 ```bib
 @inproceedings{ijcai2023p129,
