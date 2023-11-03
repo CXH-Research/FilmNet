@@ -18,7 +18,7 @@
 
 <b>University of Macau, SIAT CAS</b>
 
-2023 INTERNATIONAL JOINT CONFERENCE ON ARTIFICIAL INTELLIGENCE (IJCAI 2023)
+2023 International Joint Conference on Artificial Intelligence (IJCAI 2023)
 
 [Website & Dataset](https://cxh-research.github.io/FilmNet/) | [Code](https://github.com/CXH-Research/FilmNet) | [Filmset (Onedrive)](https://uofmacau-my.sharepoint.com/:f:/g/personal/yc17491_umac_mo/ElLsou2dB8BGjyABM617eTIBYPVfq_IL27Z9ewsivNdQSw?e=6QKV4L) | [Filmset (Baidu Netdisk)](https://pan.baidu.com/s/1KdXxWkWu5iWKXEl7q-ZTUQ?pwd=03ji)
 ---
