@@ -25,7 +25,7 @@
 
 ![image](https://github.com/CXH-Research/FilmNet/assets/94612909/a5ce8c39-d4a2-4e2a-87c7-e8688cf020c5)
 
-## 🔮 Important news:  
+## 🔮 Important news  
 11/03/2023: There was a typo regarding data for the Cinema-SSIM of DeepLPF, which we have corrected in the arxiv version of the paper.
 
 ## ⚙️ Usage
