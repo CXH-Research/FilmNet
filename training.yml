@@ -21,7 +21,6 @@ TRAINING:
   TRAIN_DIR: '../fivek/test/' # path to training data
   VAL_DIR: '../fivek/test/'     # path to validation data
   SAVE_DIR: './checkpoints/'          # path to save models and images
-  ORI: True
 
 TESTING:
   WEIGHT: './checkpoints/fivek.pth'
