@@ -20,7 +20,7 @@
 
 2023 International Joint Conference on Artificial Intelligence (IJCAI 2023)
 
-[Website & Dataset](https://cxh-research.github.io/FilmNet/) | [Code](https://github.com/CXH-Research/FilmNet) | [Filmset (Kaggle)](https://www.kaggle.com/datasets/xuhangc/filmset) 
+[Project](https://cxh-research.github.io/FilmNet/) | [Code](https://github.com/CXH-Research/FilmNet) | [Filmset (Kaggle)](https://www.kaggle.com/datasets/xuhangc/filmset) 
 ---
 
 ![image](https://github.com/CXH-Research/FilmNet/assets/94612909/a5ce8c39-d4a2-4e2a-87c7-e8688cf020c5)
