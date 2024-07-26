@@ -73,7 +73,7 @@ def train():
             optimizer.zero_grad()
             res = model(inp)
 
-            train_loss = loss_mse(res, tar) + 0.4 * (1 - structural_similarity_index_measure(res, tar))
+            train_loss = loss_mse(res, tar) + 0.4 * (1 - structural_similarity_index_measure(res, tar, data_range=1))
 
             # backward
             accelerator.backward(train_loss)
@@ -94,8 +94,8 @@ def train():
 
                     res = model(inp)
                     all_res, all_tar = accelerator.gather((res, tar))
-                    psnr += peak_signal_noise_ratio(all_res, all_tar)
-                    ssim += structural_similarity_index_measure(all_res, all_tar)
+                    psnr += peak_signal_noise_ratio(all_res, all_tar, data_range=1)
+                    ssim += structural_similarity_index_measure(all_res, all_tar, data_range=1)
                     delta_e += metric_color(all_res, all_tar)
 
                 psnr /= size
