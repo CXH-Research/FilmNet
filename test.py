@@ -23,17 +23,15 @@ seed_everything(opt.OPTIM.SEED)
 def test():
     accelerator = Accelerator()
 
+    model = FilmNet()
+    load_checkpoint(model, opt.TESTING.WEIGHT)
+
     # Data Loader
     val_dir = opt.TRAINING.VAL_DIR
-
     val_dataset = get_validation_data(val_dir, opt.MODEL.FILM, img_options={'w': opt.TRAINING.PS_W, 'h': opt.TRAINING.PS_H})
     testloader = DataLoader(dataset=val_dataset, batch_size=1, shuffle=False, num_workers=8, drop_last=False, pin_memory=True)
 
-    model = FilmNet()
-
     metric_color = ColorLoss()
-
-    load_checkpoint(model, opt.TESTING.WEIGHT)
 
     model, testloader = accelerator.prepare(model, testloader)
 

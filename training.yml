@@ -23,5 +23,5 @@ TRAINING:
   SAVE_DIR: './checkpoints/'          # path to save models and images
 
 TESTING:
-  WEIGHT: './checkpoints/fivek.pth'
+  WEIGHT: './filmnet_hdr+.pth'
   SAVE_IMAGES: True
