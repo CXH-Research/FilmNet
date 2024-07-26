@@ -92,7 +92,7 @@ def train():
                     inp = test_data[0].contiguous()
                     tar = test_data[1]
 
-                    res = model(inp, tar)
+                    res = model(inp)
                     all_res, all_tar = accelerator.gather((res, tar))
                     psnr += peak_signal_noise_ratio(all_res, all_tar)
                     ssim += structural_similarity_index_measure(all_res, all_tar)
