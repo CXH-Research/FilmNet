@@ -1,5 +1,3 @@
-from pytorch_msssim import SSIM
-
 from models.blocks import *
 from models.ttr import TTR
 from models.translow import LFNet
@@ -159,15 +157,7 @@ class FilmNet(nn.Module):
         self.lut = TTR()
         self.trans_high = TransHigh(3, num_high=depth)
 
-        self.criterion_ssim = SSIM(data_range=1, size_average=True, channel=3)
-        self.criterion_psnr = nn.MSELoss()
-
-    def total_loss(self, inp, tar):
-        loss_psnr = self.criterion_psnr(inp, tar)
-        loss_ssim = 1 - self.criterion_ssim(inp, tar)
-        return loss_psnr + 0.4 * loss_ssim
-
-    def forward(self, inp, tar):
+    def forward(self, inp):
         pyr_inp = self.lap_pyramid.pyramid_decom(img=inp)
         out_low = self.trans_low(pyr_inp[-1])
 
@@ -180,9 +170,6 @@ class FilmNet(nn.Module):
         result = self.lap_pyramid.pyramid_recons(pyr_inp_trans)
 
         result = self.lut(result)
-        if self.training:
-            total_loss = self.total_loss(result, tar)
-            return result, total_loss
         return result
 
 

@@ -1,12 +1,12 @@
 import os
 import warnings
+warnings.filterwarnings('ignore')
 
 import torch
 import torch.optim as optim
 from accelerate import Accelerator
-from pytorch_msssim import SSIM
 from torch.utils.data import DataLoader
-from torchmetrics import PeakSignalNoiseRatio
+from torchmetrics.functional import peak_signal_noise_ratio, structural_similarity_index_measure
 from tqdm import tqdm
 
 from config import Config
@@ -14,8 +14,6 @@ from data import get_training_data, get_validation_data
 from loss import ColorLoss
 from models import *
 from utils import seed_everything, save_checkpoint
-
-warnings.filterwarnings('ignore')
 
 opt = Config('training.yml')
 
@@ -28,24 +26,22 @@ if not os.path.exists(opt.TRAINING.SAVE_DIR):
 def train():
     # Accelerate
     accelerator = Accelerator(log_with='wandb') if opt.OPTIM.WANDB else Accelerator()
-    device = accelerator.device
+
     config = {
         "dataset": opt.TRAINING.TRAIN_DIR,
         "model": opt.MODEL.SESSION
     }
     accelerator.init_trackers("film", config=config)
-    metric_psnr = PeakSignalNoiseRatio().to(device)
-    metric_ssim = SSIM(data_range=1, size_average=True, channel=3).to(device)
     metric_color = ColorLoss()
+    loss_mse = torch.nn.MSELoss()
 
     # Data Loader
     train_dir = opt.TRAINING.TRAIN_DIR
     val_dir = opt.TRAINING.VAL_DIR
 
-    train_dataset = get_training_data(train_dir, opt.MODEL.FILM, {'w': opt.TRAINING.PS_W, 'h': opt.TRAINING.PS_H})
-    trainloader = DataLoader(dataset=train_dataset, batch_size=opt.OPTIM.BATCH_SIZE, shuffle=True, num_workers=16,
-                             drop_last=False, pin_memory=True)
-    val_dataset = get_validation_data(val_dir, opt.MODEL.FILM, {'w': opt.TRAINING.PS_W, 'h': opt.TRAINING.PS_H})
+    train_dataset = get_training_data(train_dir, opt.MODEL.FILM, img_options={'w': opt.TRAINING.PS_W, 'h': opt.TRAINING.PS_H})
+    trainloader = DataLoader(dataset=train_dataset, batch_size=opt.OPTIM.BATCH_SIZE, shuffle=True, num_workers=16, drop_last=False, pin_memory=True)
+    val_dataset = get_validation_data(val_dir, opt.MODEL.FILM, img_options={'w': opt.TRAINING.PS_W, 'h': opt.TRAINING.PS_H})
     testloader = DataLoader(dataset=val_dataset, batch_size=1, shuffle=False, num_workers=8, drop_last=False, pin_memory=True)
 
     # Model
@@ -63,18 +59,21 @@ def train():
     start_epoch = 1
     best_psnr = 0
 
+    size = len(testloader)
+
     # training
     for epoch in range(start_epoch, opt.OPTIM.NUM_EPOCHS + 1):
         model.train()
 
-        for i, data in enumerate(tqdm(trainloader)):
-            # get the inputs; data is a list of [target, input, filename]
-            tar = data[0]
-            inp = data[1].contiguous()
+        for _, data in enumerate(tqdm(trainloader)):
+            inp = data[0].contiguous()
+            tar = data[1]
 
             # forward
             optimizer.zero_grad()
-            res, train_loss = model(inp, tar)
+            res = model(inp)
+
+            train_loss = loss_mse(inp, res) + 0.4 * (1 - structural_similarity_index_measure(inp, res))
 
             # backward
             accelerator.backward(train_loss)
@@ -89,20 +88,19 @@ def train():
                 psnr = 0
                 ssim = 0
                 delta_e = 0
-                for idx, test_data in enumerate(tqdm(testloader)):
-                    # get the inputs; data is a list of [targets, inputs, filename]
-                    tar = test_data[0]
-                    inp = test_data[1].contiguous()
+                for _, test_data in enumerate(tqdm(testloader)):
+                    inp = test_data[0].contiguous()
+                    tar = test_data[1]
 
                     res = model(inp, tar)
                     all_res, all_tar = accelerator.gather((res, tar))
-                    psnr += metric_psnr(all_res, all_tar)
-                    ssim += metric_ssim(all_res, all_tar)
+                    psnr += peak_signal_noise_ratio(all_res, all_tar)
+                    ssim += structural_similarity_index_measure(all_res, all_tar)
                     delta_e += metric_color(all_res, all_tar)
 
-                psnr /= len(testloader)
-                ssim /= len(testloader)
-                delta_e /= len(testloader)
+                psnr /= size
+                ssim /= size
+                delta_e /= size
 
                 if psnr > best_psnr:
                     # save model

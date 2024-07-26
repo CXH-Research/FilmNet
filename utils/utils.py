@@ -25,16 +25,5 @@ def save_checkpoint(state, epoch, outdir):
 
 
 def load_checkpoint(model, weights):
-    checkpoint = torch.load(weights, map_location=lambda storage, loc: storage.cuda(0))
-    new_state_dict = OrderedDict()
-    for key, value in checkpoint['state_dict'].items():
-        if 'll_layer_module' not in key:
-            key = key.replace('ll_layer', 'll_layer_module')
-        if 'enhance_module' not in key:
-            key = key.replace('enhance', 'enhance_module')
-        if key.startswith('module'):
-            name = key[7:]
-        else:
-            name = key
-        new_state_dict[name] = value
-    model.load_state_dict(new_state_dict)
+    checkpoint = torch.load(weights)['state_dict']
+    model.load_state_dict(checkpoint)

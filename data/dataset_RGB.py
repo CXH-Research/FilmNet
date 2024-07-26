@@ -82,7 +82,7 @@ class DataLoaderTrain(Dataset):
 
         filename = os.path.splitext(os.path.split(tar_path)[-1])[0]
 
-        return tar_img, inp_img, filename
+        return inp_img, tar_img, filename
 
 
 class DataLoaderVal(Dataset):
@@ -121,18 +121,18 @@ class DataLoaderVal(Dataset):
 
         filename = os.path.splitext(os.path.split(tar_path)[-1])[0]
 
-        return tar_img, inp_img, filename
+        return inp_img, tar_img, filename
 
 
 class DataLoaderTest(Dataset):
-    def __init__(self, inp_dir, img_options, film_class='target'):
+    def __init__(self, inp_dir, img_options):
         super(DataLoaderTest, self).__init__()
 
-        inp_files = sorted(os.listdir(inp_dir))
-        tar_files = sorted(os.listdir(os.path.join(inp_dir, film_class)))
+        inp_files = sorted(os.listdir(os.path.join(inp_dir, 'input')))
+        tar_files = sorted(os.listdir(os.path.join(inp_dir, 'target')))
 
-        self.inp_filenames = [os.path.join(inp_dir, x) for x in inp_files if is_image_file(x)]
-        self.tar_filenames = [os.path.join(film_class, x) for x in tar_files if is_image_file(x)]
+        self.inp_filenames = [os.path.join(inp_dir, 'input') for x in inp_files if is_image_file(x)]
+        self.tar_filenames = [os.path.join(inp_dir, 'target') for x in tar_files if is_image_file(x)]
 
         self.inp_size = len(self.inp_filenames)
         self.img_options = img_options

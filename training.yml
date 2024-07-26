@@ -1,7 +1,7 @@
 VERBOSE: True
 
 MODEL:
-  SESSION: 'Film'
+  SESSION: '5k'
   FILM: 'target'
 
 # Optimization arguments.
