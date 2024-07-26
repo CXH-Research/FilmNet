@@ -73,7 +73,7 @@ def train():
             optimizer.zero_grad()
             res = model(inp)
 
-            train_loss = loss_mse(inp, res) + 0.4 * (1 - structural_similarity_index_measure(inp, res))
+            train_loss = loss_mse(res, tar) + 0.4 * (1 - structural_similarity_index_measure(res, tar))
 
             # backward
             accelerator.backward(train_loss)
